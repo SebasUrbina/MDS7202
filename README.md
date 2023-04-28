@@ -34,3 +34,9 @@ Integrantes:
 - Comprender y aprovechar las ventajas que nos ofrece la liberia `numpy` con respecto a trabajar en Python 'puro'.
 - Visualizar aplicaciones de filtros de imágenes sin el uso de librerías.
 - Verificar que el uso indiscriminado de `for` puede afectar en la eficiencia en al procesar datos masivos.
+
+## [Laboratorio 4](https://github.com/SebasUrbina/MDS7202/blob/main/Laboratorios/Laboratorio%204/Laboratorio_4.ipynb)
+
+**Objetivos**:
+- Entender, aplicar y aprovechar las ventajas que nos ofrece la libreria `pandas` para manejar datos tabulares.
+- Aprender a utilizar la documentación de pandas (y en general, de cualquier librería de python) como también a buscar soluciones en la web.
