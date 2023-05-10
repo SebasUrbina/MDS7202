@@ -40,3 +40,13 @@ Integrantes:
 **Objetivos**:
 - Entender, aplicar y aprovechar las ventajas que nos ofrece la libreria `pandas` para manejar datos tabulares.
 - Aprender a utilizar la documentación de pandas (y en general, de cualquier librería de python) como también a buscar soluciones en la web.
+
+## [Laboratorio 5](https://github.com/SebasUrbina/MDS7202/blob/main/Laboratorios/Laboratorio%205/Laboratorio_5.ipynb)
+
+**Objetivos**:
+- Aplicar y aprovechar las ventajas que nos ofrece la libreria `pandas`.
+- Utilizar `plotly` para obtener información gráfica del dataset.
+- Aplicar el **Análisis Exploratorio de Datos** a un caso en particular.
+
+
+
