@@ -48,5 +48,12 @@ Integrantes:
 - Utilizar `plotly` para obtener información gráfica del dataset.
 - Aplicar el **Análisis Exploratorio de Datos** a un caso en particular.
 
+## [Laboratorio 6](https://github.com/SebasUrbina/MDS7202/blob/main/Laboratorios/Laboratorio%206/Laboratorio_6.ipynb)
+
+**Objetivos**:
+- Aplicar los paradigmas y buenas prácticas de programación vistas hasta este momento.
+- Comprender y aprovechar las ventajas que nos ofrece la liberia `numpy` con respecto a trabajar en Python 'puro'.
+- Visualizar aplicaciones de filtros de imágenes sin el uso de librerías.
+- Verificar que el uso indiscriminado de `for` puede afectar en la eficiencia en al procesar datos masivos.
 
 
