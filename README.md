@@ -68,4 +68,13 @@ El desarrollo de este objetivo considera dos tareas principales que se listan a 
 - Visualizar aplicaciones de filtros de imágenes sin el uso de librerías.
 - Verificar que el uso indiscriminado de `for` puede afectar en la eficiencia en al procesar datos masivos.
 
+## [Laboratorio 7](https://github.com/SebasUrbina/MDS7202/blob/main/Laboratorios/Laboratorio%207/Laboratorio_7.ipynb)
+
+**Objetivos**:
+- Comprender y aprovechar las ventajas que nos ofrece la librería `pandas` con respecto a trabajar en Python "puro".
+- Crear nuevas características para entrenar un modelo de clustering.
+- Comprender como aplicar pipelines de Scikit-Learn para generar procesos más limpios.
+
+
+
 
