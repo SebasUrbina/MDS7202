@@ -75,6 +75,12 @@ El desarrollo de este objetivo considera dos tareas principales que se listan a 
 - Crear nuevas características para entrenar un modelo de clustering.
 - Comprender como aplicar pipelines de Scikit-Learn para generar procesos más limpios.
 
+## [Laboratorio 8](https://github.com/SebasUrbina/MDS7202/blob/main/Laboratorios/Laboratorio%208/Laboratorio_8.ipynb)
+
+**Objetivos**:
+- Comprender el funcionamiento de clasificadores/regresores.
+- Generar múltiples modelos predictivos.
+- Comprender las ventajas de crear modelos en pipeline vs hacer las operaciones a mano.
 
 
 
