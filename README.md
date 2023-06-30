@@ -82,11 +82,15 @@ El desarrollo de este objetivo considera dos tareas principales que se listan a 
 - Generar múltiples modelos predictivos.
 - Comprender las ventajas de crear modelos en pipeline vs hacer las operaciones a mano.
 
-## [Laboratorio 9](https://github.com/SebasUrbina/MDS7202/blob/main/Laboratorios/Laboratorio%208/Laboratorio_8.ipynb)
+## [Laboratorio 9](https://github.com/SebasUrbina/MDS7202/blob/main/Laboratorios/Laboratorio%209/Laboratorio_9.ipynb)
 
 **Objetivos**:
 - Obtener caracteristicas a partir de texto usando `CountVectorizer`.
 - Fijar un pipeline con un modelo base que luego se irá optimizando.
 - Comprender como realizar una búsqueda de grilla sobre un conjunto de clasificadores e hiperparámetros usando `GridSearch`.
 
+## [Laboratorio 10](https://github.com/SebasUrbina/MDS7202/blob/main/Laboratorios/Laboratorio%2010/Laboratorio_10.ipynb)
 
+**Objetivos**:
+- Generar un pipeline de clasificación con `XGBoost`.
+- Implementar modelos de interpretabilidad Global (`Partial Dependence Plot`, `Permutation Feature Importance`) y Local (`Scoped Rules`, `SHAP`) para explicar el funcionamiento del modelo de clasificación.
