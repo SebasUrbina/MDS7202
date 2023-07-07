@@ -10,8 +10,8 @@ def create_pipeline(**kwargs) -> Pipeline:
     return pipeline([
         node(
             func=get_data,
-            inputs="datasets",
-            outputs="outputs",
+            inputs=None ,
+            outputs=["companies","shuttles","reviews"],
             name="get_data"
         ),
         node(
@@ -28,7 +28,7 @@ def create_pipeline(**kwargs) -> Pipeline:
         ),
         node(
             func=create_model_input_table,
-            inputs="companies_shuttles_reviews",
+            inputs=["shuttles_preprocessed","companies_preprocessed","reviews"],
             outputs="model_input_table",
             name="create_model_input_table"
         )
