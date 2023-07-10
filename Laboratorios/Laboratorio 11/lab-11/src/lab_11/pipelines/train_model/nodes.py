@@ -81,16 +81,29 @@ def train_model(X_train, X_valid, y_train, y_valid):
         # pred_rf = rf_reg.predict(X_valid)
         # pred_sv = sv_reg.predict(X_valid)
         # pred_xgb = xgb_reg.predict(X_valid)
-
+        mae_linear = mean_absolute_error(y_valid, pred_linear)
+        mlflow.log_metric("valid mae", mae_linear)
 
         # aquí termina el run
+    
 
     with mlflow.start_run(experiment_id=rf_id):
         rf_reg.fit(X_train, y_train)
         pred_rf = rf_reg.predict(X_valid)
+        mae_rf = mean_absolute_error(y_valid, pred_rf)
+        mlflow.log_metric("valid mae", mae_rf)
 
-
+    with mlflow.start_run(experiment_id=sv_id):
+        sv_reg.fit(X_train, y_train)
+        pred_sv = sv_reg.predict(X_valid)
+        mae_sv = mean_absolute_error(y_valid, pred_sv)
+        mlflow.log_metric("valid mae", mae_sv)
     
+    with mlflow.start_run(experiment_id=xgb_id):
+        xgb_reg.fit(X_train, y_train)
+        pred_xgb = xgb_reg.predict(X_valid)
+        mae_xgb = mean_absolute_error(y_valid, pred_xgb)
+        mlflow.log_metric("valid mae", mae_xgb)
 
     pass
 
