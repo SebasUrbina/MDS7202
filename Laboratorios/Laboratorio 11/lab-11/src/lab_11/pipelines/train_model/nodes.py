@@ -87,12 +87,12 @@ def train_model(X_train, X_valid, y_train, y_valid):
             # xgb_reg.fit(X_train, y_train)
 
             # predicciones
-            pred_linear = linear_reg.predict(X_valid)
+            pred = clf.predict(X_valid)
             # pred_rf = rf_reg.predict(X_valid)
             # pred_sv = sv_reg.predict(X_valid)
             # pred_xgb = xgb_reg.predict(X_valid)
-            mae_linear = mean_absolute_error(y_valid, pred_linear)
-            mlflow.log_metric("valid_mae", mae_linear)
+            mae = mean_absolute_error(y_valid, pred)
+            mlflow.log_metric("valid_mae", mae)
 
     # with mlflow.start_run(experiment_id=rf_id):
     #     rf_reg.fit(X_train, y_train.ravel())
