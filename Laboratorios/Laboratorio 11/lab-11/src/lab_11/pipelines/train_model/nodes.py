@@ -12,6 +12,9 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error
 from sklearn.svm import SVR
+import lightgbm as ltb
+
+from datetime import datetime
 
 
 def split_data(data: pd.DataFrame, params: Dict):
@@ -54,51 +57,62 @@ def train_model(X_train, X_valid, y_train, y_valid):
     rf_reg = RandomForestRegressor()
     sv_reg = SVR()
     xgb_reg = xgb.XGBRegressor()
+    ltb_reg = ltb.LGBMRegressor()
 
     # Create a new experiment
     # experiment_name = "Linear Regression"
-    linear_id = mlflow.create_experiment("Linear Regression")
-    rf_id = mlflow.create_experiment("Random Forest")
-    sv_id = mlflow.create_experiment("Support Vector")
-    xgb_id = mlflow.create_experiment("XGBoost")
+    # linear_id = mlflow.create_experiment("Linear Regression")
+    # rf_id = mlflow.create_experiment("Random Forest")
+    # sv_id = mlflow.create_experiment("Support Vector")
+    # xgb_id = mlflow.create_experiment("XGBoost")
 
-    mlflow.autolog()  # registrar automáticamente información del entrenamiento
-    with mlflow.start_run(experiment_id=linear_id):  # delimita inicio y fin del run
-        # aquí comienza el run
+    models = [["Linear Regression", linear_reg],
+              ["Random Forest", rf_reg],
+              ["Support Vector", sv_reg],
+              ["XGBoost", xgb_reg],
+              ["LGBM", ltb_reg]]
 
-        # entrenamiento de los modelos
-        linear_reg.fit(X_train, y_train.ravel())
-        # rf_reg.fit(X_train, y_train)
-        # sv_reg.fit(X_train, y_train)
-        # xgb_reg.fit(X_train, y_train)
+    experiment_name = "Experiment " + str(datetime.now())
+    experiment_id = mlflow.create_experiment(experiment_name)
 
-        # predicciones
-        pred_linear = linear_reg.predict(X_valid)
-        # pred_rf = rf_reg.predict(X_valid)
-        # pred_sv = sv_reg.predict(X_valid)
-        # pred_xgb = xgb_reg.predict(X_valid)
-        mae_linear = mean_absolute_error(y_valid, pred_linear)
-        mlflow.log_metric("valid_mae", mae_linear)
+    for m in models:
+        mlflow.autolog()  # registrar automáticamente información del entrenamiento
+        with mlflow.start_run(experiment_id=experiment_id, run_name = m[0]):  # delimita inicio y fin del run
+            # aquí comienza el run
+            clf = m[1]
+            # entrenamiento de los modelos
+            clf.fit(X_train, y_train)
+            # rf_reg.fit(X_train, y_train)
+            # sv_reg.fit(X_train, y_train)
+            # xgb_reg.fit(X_train, y_train)
 
-    with mlflow.start_run(experiment_id=rf_id):
-        rf_reg.fit(X_train, y_train.ravel())
-        pred_rf = rf_reg.predict(X_valid)
-        mae_rf = mean_absolute_error(y_valid, pred_rf)
-        mlflow.log_metric("valid_mae", mae_rf)
+            # predicciones
+            pred_linear = linear_reg.predict(X_valid)
+            # pred_rf = rf_reg.predict(X_valid)
+            # pred_sv = sv_reg.predict(X_valid)
+            # pred_xgb = xgb_reg.predict(X_valid)
+            mae_linear = mean_absolute_error(y_valid, pred_linear)
+            mlflow.log_metric("valid_mae", mae_linear)
 
-    with mlflow.start_run(experiment_id=sv_id):
-        sv_reg.fit(X_train, y_train.ravel())
-        pred_sv = sv_reg.predict(X_valid)
-        mae_sv = mean_absolute_error(y_valid, pred_sv)
-        mlflow.log_metric("valid_mae", mae_sv)
+    # with mlflow.start_run(experiment_id=rf_id):
+    #     rf_reg.fit(X_train, y_train.ravel())
+    #     pred_rf = rf_reg.predict(X_valid)
+    #     mae_rf = mean_absolute_error(y_valid, pred_rf)
+    #     mlflow.log_metric("valid_mae", mae_rf)
 
-    with mlflow.start_run(experiment_id=xgb_id):
-        xgb_reg.fit(X_train, y_train.ravel())
-        pred_xgb = xgb_reg.predict(X_valid)
-        mae_xgb = mean_absolute_error(y_valid, pred_xgb)
-        mlflow.log_metric("valid_mae", mae_xgb)
+    # with mlflow.start_run(experiment_id=sv_id):
+    #     sv_reg.fit(X_train, y_train.ravel())
+    #     pred_sv = sv_reg.predict(X_valid)
+    #     mae_sv = mean_absolute_error(y_valid, pred_sv)
+    #     mlflow.log_metric("valid_mae", mae_sv)
 
-    best_model = get_best_model(linear_id)
+    # with mlflow.start_run(experiment_id=xgb_id):
+    #     xgb_reg.fit(X_train, y_train.ravel())
+    #     pred_xgb = xgb_reg.predict(X_valid)
+    #     mae_xgb = mean_absolute_error(y_valid, pred_xgb)
+    #     mlflow.log_metric("valid_mae", mae_xgb)
+
+    best_model = get_best_model(experiment_id)
 
     return best_model
 
