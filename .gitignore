@@ -130,3 +130,6 @@ dmypy.json
 
 # Ignore .gif files
 *.gif
+
+# Ignore mlruns folder
+mlruns/
