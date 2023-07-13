@@ -3,8 +3,10 @@ This is a boilerplate pipeline 'train_model'
 generated using Kedro 0.18.11
 """
 import logging
+from datetime import datetime
 from typing import Dict
 
+import lightgbm as ltb
 import mlflow
 import pandas as pd
 import xgboost as xgb
@@ -12,9 +14,6 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error
 from sklearn.svm import SVR
-import lightgbm as ltb
-
-from datetime import datetime
 
 
 def split_data(data: pd.DataFrame, params: Dict):
@@ -59,11 +58,13 @@ def train_model(X_train, X_valid, y_train, y_valid):
     ltb_reg = ltb.LGBMRegressor()
 
     # Create a new experiment
-    models = [["Linear Regression", linear_reg],
-              ["Random Forest", rf_reg],
-              ["Support Vector", sv_reg],
-              ["XGBoost", xgb_reg],
-              ["LGBM", ltb_reg]]
+    models = [
+        ["Linear Regression", linear_reg],
+        ["Random Forest", rf_reg],
+        ["Support Vector", sv_reg],
+        ["XGBoost", xgb_reg],
+        ["LGBM", ltb_reg],
+    ]
 
     experiment_name = "Experiment " + str(datetime.now())
     experiment_id = mlflow.create_experiment(experiment_name)
