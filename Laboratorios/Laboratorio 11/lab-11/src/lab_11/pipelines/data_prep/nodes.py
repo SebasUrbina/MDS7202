@@ -22,7 +22,6 @@ def _parse_money(x: pd.Series) -> pd.Series:
 
 
 def get_data():
-    # TODO: completar get_data()
     companies = pd.read_csv(
         "https://github.com/MDS7202/lab_11/blob/main/companies.csv?raw=True"
     )
