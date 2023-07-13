@@ -94,3 +94,10 @@ El desarrollo de este objetivo considera dos tareas principales que se listan a 
 **Objetivos**:
 - Generar un pipeline de clasificación con `XGBoost`.
 - Implementar modelos de interpretabilidad Global (`Partial Dependence Plot`, `Permutation Feature Importance`) y Local (`Scoped Rules`, `SHAP`) para explicar el funcionamiento del modelo de clasificación.
+
+## [Laboratorio 11](https://github.com/SebasUrbina/MDS7202/blob/main/Laboratorios/Laboratorio%2011/Laboratorio_11.ipynb)
+
+**Objetivos**:
+- Automatizar el flujo de vida de un proyecto de machine learning usando `kedro`
+- Formatear código usando `flake8`, `isort` y `black`
+- Registrar y comparar modelos a través de `MLflow`
