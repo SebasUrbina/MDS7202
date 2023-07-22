@@ -17,6 +17,9 @@ El desarrollo de este objetivo considera dos tareas principales que se listan a 
 
 2. Buscar anomalías de forma automatizada. Esto mediante la aplicación de algoritmos de "novelty detection".
 
+## [Parte 2](https://github.com/SebasUrbina/MDS7202/blob/main/Proyecto/Parte%202/Proyecto_2.ipynb)
+
+1. Crear un modelo para identificar clientes riesgosos
 
 # Laboratorios
 
